@@ -11,5 +11,5 @@ app.get("/", (req, res) =>
 );
 
 app.use("/recipes", recipeRoutes); // Routes pour les recettes
-app.use("/film", filmRoutes);
+app.use("/films", filmRoutes);
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
