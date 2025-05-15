@@ -1,0 +1,21 @@
+<!-- views/films.ejs -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Liste des films</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <h1>Liste des films</h1>
+  <div class="film-list">
+    <% films.forEach(film => { %>
+      <div class="film">
+        <div class="film-title"><%= film.title %></div>
+        <div class="film-details">
+          Réalisateur : <%= film.director %> | Année : <%= film.release_year %> | Genre : <%= film.genre %>
+        </div>
+      </div>
+    <% }) %>
+  </div>
+</body>
+</html>

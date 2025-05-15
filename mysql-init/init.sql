@@ -19,7 +19,7 @@ VALUES (
   'mario@example.com',
   '$2b$10$E9HQbCHfQK4D7ynXdw6JxOsZdXfBLZgiU7pWDyfnlUUXzWPHkmkqK'
 );
-CREATE TABLE IF NOT EXISTS film (
+CREATE TABLE IF NOT EXISTS films (
   id INT PRIMARY KEY AUTO_INCREMENT,
   title VARCHAR(255) NOT NULL,
   director VARCHAR(255),
@@ -27,6 +27,18 @@ CREATE TABLE IF NOT EXISTS film (
   genre VARCHAR(100),
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 ) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+INSERT INTO films (title, director, release_year, genre)
+VALUES
+  ('Inception', 'Christopher Nolan', 2010, 'Science Fiction'),
+  ('Le Fabuleux Destin d''Amélie Poulain', 'Jean-Pierre Jeunet', 2001, 'Comédie romantique'),
+  ('Parasite', 'Bong Joon-ho', 2019, 'Thriller'),
+  ('Interstellar', 'Christopher Nolan', 2014, 'Science Fiction'),
+  ('La La Land', 'Damien Chazelle', 2016, 'Comédie musicale'),
+  ('Le Seigneur des Anneaux : La Communauté de l''Anneau', 'Peter Jackson', 2001, 'Fantasy'),
+  ('Forrest Gump', 'Robert Zemeckis', 1994, 'Drame'),
+  ('The Dark Knight', 'Christopher Nolan', 2008, 'Action'),
+  ('Pulp Fiction', 'Quentin Tarantino', 1994, 'Crime'),
+  ('Intouchables', 'Olivier Nakache & Éric Toledano', 2011, 'Comédie dramatique');
 
 
 CREATE TABLE IF NOT EXISTS recipes (

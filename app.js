@@ -1,6 +1,9 @@
 const express = require("express");
 const app = express();
 const PORT = 3000;
+app.set("view engine", "ejs");
+app.use(express.static("public")); 
+
 
 const recipeRoutes = require("./routes/recipes.routes");
 const filmRoutes = require("./routes/film.routes");
