@@ -1,16 +1,26 @@
-# Image de base
-FROM node:17
+# Utiliser une image de base Node.js
+FROM node:18
 
-# Dossier de travail dans le conteneur
-WORKDIR /app
+# Installer le client MySQL
+RUN apt-get update && apt-get install -y mariadb-client
 
-# Copier les fichiers
+# Créer un répertoire de travail dans le conteneur
+WORKDIR /usr/src/app
+
+# Copier les fichiers package.json et package-lock.json
 COPY package*.json ./
+
+# Installer les dépendances de l'application
 RUN npm install
+
+# Copier tous les autres fichiers du projet dans le conteneur
 COPY . .
 
-# Exposer le port de l'app
+# Rendre le script exécutable
+RUN chmod +x /usr/src/app/wait-for-mysql.sh
+
+# Exposer le port que l'application va utiliser (par défaut 3000)
 EXPOSE 3000
 
-# Commande de lancement
-CMD ["npm", "start"]
+# Commande de démarrage
+CMD ["/usr/src/app/wait-for-mysql.sh"]
