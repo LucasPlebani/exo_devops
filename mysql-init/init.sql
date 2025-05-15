@@ -19,6 +19,14 @@ VALUES (
   'mario@example.com',
   '$2b$10$E9HQbCHfQK4D7ynXdw6JxOsZdXfBLZgiU7pWDyfnlUUXzWPHkmkqK'
 );
+CREATE TABLE IF NOT EXISTS film (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  title VARCHAR(255) NOT NULL,
+  director VARCHAR(255),
+  release_year INT,
+  genre VARCHAR(100),
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 
 CREATE TABLE IF NOT EXISTS recipes (
