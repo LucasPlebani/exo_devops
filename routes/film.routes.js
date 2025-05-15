@@ -4,6 +4,8 @@ const { verifyToken } = require("../middleware/auth.middleware");
 
 const router = express.Router();
 
+
+
 router.post("/", verifyToken, filmController.createFilm);
 router.get("/", filmController.getAllFilms);
 router.get("/:id", filmController.getFilmById);
