@@ -1,10 +1,8 @@
-import express from "express";
-import filmController from "../controllers/film.controller.js";
-import { verifyToken } from "../middleware/auth.middleware.js";
+const express = require("express");
+const filmController = require("../controllers/film.controller");
+const { verifyToken } = require("../middleware/auth.middleware");
 
 const router = express.Router();
-
-
 
 router.post("/", verifyToken, filmController.createFilm);
 router.get("/", filmController.getAllFilms);
@@ -12,4 +10,4 @@ router.get("/:id", filmController.getFilmById);
 router.put("/:id", verifyToken, filmController.updateFilm);
 router.delete("/:id", verifyToken, filmController.deleteFilm);
 
-export default router;
+module.exports = router;
